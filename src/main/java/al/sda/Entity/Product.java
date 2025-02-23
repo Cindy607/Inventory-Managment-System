@@ -26,6 +26,10 @@ public class Product {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category")
+    private Category category;
+
     public Long getId() {
         return id;
     }
@@ -70,5 +74,13 @@ public class Product {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
