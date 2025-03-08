@@ -9,6 +9,14 @@ import java.time.LocalDateTime;
 @Entity
 public class Product {
 
+    public Product(Long id) {
+        this.id = id;
+    }
+
+    public Product() {
+
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -82,5 +90,19 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", description='" + description + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", category=" + category +
+                '}';
     }
 }
